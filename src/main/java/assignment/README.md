@@ -1,5 +1,7 @@
 # Lab practice 2
---
+
+--------
+
 ## Task 1:  Array operations
 ### 1) Reverse Traverse 
 
@@ -36,6 +38,11 @@
 
 - Create a method _atIndex_ that  inserts a given value at the given index of an array and returns the resulting array.
 
+
+#### Extra: refactor your code
+
+- refactor (rewrite) your code in such a way that both methods _atStart_ and _atEnd_ invoke your method _atIndex_.
+
 ### 3) Delete an element in an array.
 
 
@@ -61,9 +68,19 @@
 - Create a method _atIndex_ that  deletes the element at the given index of an array and returns the resulting array.
 
 
+#### Extra: refactor your code
+
+- refactor (rewrite) your code in such a way that both methods _atStart_ and _atEnd_ invoke your method _atIndex_.
+
+- would have been much easier to begin with method _atIndex_ , wouldnt it?
+
+--------------
+
+
+### Hints and stuff
+
 - Hint: you may already find code for constructing a _Traverse_- , _Insert_ and _Delete_-objects and invoking the methods in the compact class _main.java_.  More information on compact class in java25 here: https://openjdk.org/jeps/512
 
 - Optional: To test your code, you will find the test setup in the file `src/test/java/assignment/TestAssignment.java`. There you can choose to run all tests at once or run them one by one. This requires that maven JUNIT 6 is installed: https://www.jetbrains.com/help/idea/junit.html
 
 - Solution: You can find a solution proposal i the `src/main/java/solution` folder.
-
