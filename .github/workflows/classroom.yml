@@ -27,16 +27,34 @@ jobs:
         setup-command: ''
         command: mvn -Dtest=TestAssignment#reverseTest test
         timeout: 10
-        max-score: 15
-    - name: insertTest
-      id: insertTest
+        max-score: 10
+    - name: insertAtStartTest
+      id: insertAtStartTest
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: insertTest
+        test-name: insertAtStartTest
         setup-command: ''
-        command: mvn -Dtest=TestAssignment#insertTest test
+        command: mvn -Dtest=TestAssignment#insertAtStartTest test
         timeout: 10
-        max-score: 15
+        max-score: 5
+    - name: insertAtEndTest
+      id: insertAtEndTest
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: insertAtEndTest
+        setup-command: ''
+        command: mvn -Dtest=TestAssignment#insertAtEndTest test
+        timeout: 10
+        max-score: 5
+    - name: insertAtIndexTest
+      id: insertAtIndexTest
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: insertAtIndexTest
+        setup-command: ''
+        command: mvn -Dtest=TestAssignment#insertAtStartTest test
+        timeout: 10
+        max-score: 5
     - name: deleteTest
       id: deleteTest
       uses: classroom-resources/autograding-command-grader@v1
@@ -50,7 +68,9 @@ jobs:
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
         REVERSETEST_RESULTS: "${{steps.reverseTest.outputs.result}}"
-        INSERTTEST_RESULTS: "${{steps.insertTest.outputs.result}}"
+        INSERTATSTARTTEST_RESULTS: "${{steps.insertAtStartTest.outputs.result}}"
+        INSERTATENDTEST_RESULTS: "${{steps.insertAtEndTest.outputs.result}}"
+        INSERTATINDEXTEST_RESULTS: "${{steps.insertAtIndexTest.outputs.result}}"
         DELETETEST_RESULTS: "${{steps.deleteTest.outputs.result}}"
       with:
-        runners: reverseTest,insertTest,deleteTest
+        runners: reverseTest,insertAtStartTest,insertAtEndTest,insertAtIndexTest,deleteTest

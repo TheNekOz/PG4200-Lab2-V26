@@ -35,30 +35,57 @@ public class TestAssignment extends BaseAssignment
 
     }
 
-    @DisplayName("Assignment Task #02")
+    @DisplayName("Assignment Task #02.1")
     @Order(2)
     @Test()
-    public void insertTest() {
+    public void insertAtStartTest() {
 
         int[] arr = {76,87,89,95,1,56,34,22};
         int value = 33;
         int[] startArr = {33,76,87,89,95,1,56,34,22};
-        int[] endArr = {76,87,89,95,1,56,34,22,33};
-        int index = 3;
-        int[] indexArr = {76,87,89,33,95,1,56,34,22};
 
         Insert in = new Insert(arr);
         int[] actualResult = in.atStart(value);
         assertArrayEquals(startArr, actualResult);
-        actualResult = in.atEnd(value);
+
+    }
+
+
+    @DisplayName("Assignment Task #02.2")
+    @Order(3)
+    @Test()
+    public void insertAtEndTest() {
+
+        int[] arr = {76,87,89,95,1,56,34,22};
+        int value = 33;
+
+        int[] endArr = {76,87,89,95,1,56,34,22,33};
+
+
+        Insert in = new Insert(arr);
+        int[] actualResult = in.atEnd(value);
         assertArrayEquals(endArr, actualResult);
-        actualResult = in.atIndex(value, index);
+
+    }
+
+    @DisplayName("Assignment Task #02.3")
+    @Order(4)
+    @Test()
+    public void insertAtIndexTest() {
+
+        int[] arr = {76,87,89,95,1,56,34,22};
+        int value = 33;
+         int index = 3;
+        int[] indexArr = {76,87,89,33,95,1,56,34,22};
+
+        Insert in = new Insert(arr);
+        int[] actualResult = in.atIndex(value, index);
         assertArrayEquals(indexArr, actualResult);
     }
 
 
     @DisplayName("Assignment Task #03")
-    @Order(3)
+    @Order(4)
     @Test()
     public void deleteTest() {
 
