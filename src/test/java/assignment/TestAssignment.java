@@ -84,23 +84,45 @@ public class TestAssignment extends BaseAssignment
     }
 
 
-    @DisplayName("Assignment Task #03")
-    @Order(4)
+    @DisplayName("Assignment Task #03.1")
+    @Order(5)
     @Test()
-    public void deleteTest() {
+    public void deleteAtStartTest() {
 
         int[] arr = {76,87,89,95,1,56,34,22};
         int[] startArr = {87,89,95,1,56,34,22};
-        int[] endArr = {76,87,89,95,1,56,34};
-        int index = 3;
-        int[] indexArr = {76,87,89,1,56,34,22};
 
         Delete del = new Delete(arr);
         int[] actualResult = del.atStart();
         assertArrayEquals(startArr, actualResult);
-        actualResult = del.atEnd();
-        assertArrayEquals(endArr, actualResult);                       
-        actualResult = del.atIndex(index);
+
+    }
+
+    @DisplayName("Assignment Task #03.2")
+    @Order(6)
+    @Test()
+    public void deleteAtEndTest() {
+
+        int[] arr = {76,87,89,95,1,56,34,22};
+        int[] endArr = {76,87,89,95,1,56,34};
+
+        Delete del = new Delete(arr);
+        int[] actualResult = del.atEnd();
+        assertArrayEquals(endArr, actualResult);
+
+    }
+
+    @DisplayName("Assignment Task #03")
+    @Order(7)
+    @Test()
+    public void deleteAtIndexTest() {
+
+        int[] arr = {76,87,89,95,1,56,34,22};
+        int index = 3;
+        int[] indexArr = {76,87,89,1,56,34,22};
+
+        Delete del = new Delete(arr);
+        int[] actualResult = del.atIndex(index);
         assertArrayEquals(indexArr, actualResult);
     }
 
