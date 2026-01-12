@@ -1,0 +1,56 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v5.0.1
+    - name: Set up JDK 25
+      uses: actions/setup-java@v5.1.0
+      with:
+          distribution: 'oracle'
+          java-version: '25'
+          cache: 'maven'
+    - name: reverseTest
+      id: reverseTest
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: reverseTest
+        setup-command: ''
+        command: mvn -Dtest=TestAssignment#reverseTest test
+        timeout: 10
+        max-score: 15
+    - name: insertTest
+      id: insertTest
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: insertTest
+        setup-command: ''
+        command: mvn -Dtest=TestAssignment#insertTest test
+        timeout: 10
+        max-score: 15
+    - name: deleteTest
+      id: deleteTest
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: deleteTest
+        setup-command: ''
+        command: mvn -Dtest=TestAssignment#deleteTest test
+        timeout: 10
+        max-score: 15
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        REVERSETEST_RESULTS: "${{steps.reverseTest.outputs.result}}"
+        INSERTTEST_RESULTS: "${{steps.insertTest.outputs.result}}"
+        DELETETEST_RESULTS: "${{steps.deleteTest.outputs.result}}"
+      with:
+        runners: reverseTest,insertTest,deleteTest
