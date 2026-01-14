@@ -1,21 +1,19 @@
 package assignment;
 
 public class Traverse {
-    public int [] arr;
+    private static int [] arr;
 
     public Traverse(int[] arr) {
         this.arr = arr;
     }
 
-    static void inReverse(int[] arr) {
-
+    public int[] inReverse() {
+        int arrLen = this.arr.length;
+        int [] revArr = new int[arrLen];
+        arrLen--;
+        for (int i = arrLen; i >= 0; i--) {
+            revArr[arrLen - i] = arr[i];
+        }
+        return revArr;
     }
-
-/*
-*
-* ADD your code here
-*
-*/
-
-
 }
