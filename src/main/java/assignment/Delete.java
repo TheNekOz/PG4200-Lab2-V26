@@ -21,4 +21,17 @@ public class Delete {
         }
         return indexArr;
     }
+
+    public int[] atStart() {
+        int[] startArr;
+        startArr = atIndex(0);
+        return startArr;
+    }
+
+    public int[] atEnd() {
+        int[] endArr;
+        int arrLen = this.arr.length;
+        endArr = atIndex(arrLen);
+        return endArr;
+    }
 }
