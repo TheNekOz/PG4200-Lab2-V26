@@ -10,20 +10,15 @@ public class Insert {
     public int[] atStart(int value) {
         int arrLen = this.arr.length;
         int[] startArr = new int[arrLen + 1];
-        startArr[0] = value;
-        System.arraycopy(arr, 0, startArr, 1, arrLen);
+        startArr = atIndex(value, 0);
         return startArr;
-        // Probably intended to be done manually through for loop, but arraycopy works and is fast
-        // Laziness wins over me at this moment, still burned out with major brainfog from exams.
-        // Yell at me if I really should do it manually.
-        // Update: Ok I should have read ahead.
+        // Assignment yelled at me to refactor, so I did.
     }
 
     public int[] atEnd(int value) {
         int arrLen = this.arr.length;
         int[] endArr = new int[arrLen + 1];
-        endArr[endArr.length - 1] = value;
-        System.arraycopy(arr, 0, endArr, 0, arrLen);
+        endArr = atIndex(value, endArr.length - 1);
         return endArr;
     }
 
