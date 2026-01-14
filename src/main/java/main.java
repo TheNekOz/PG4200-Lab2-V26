@@ -36,25 +36,10 @@ void main() {
   newArr = in.atIndex(myValue, myRandPosition)   ;
   for(int elem : newArr){            
          IO.print(elem + " ");       
-  }                                  
+  }
 
 
   Delete del = new Delete(arr);
-  IO.println("");
-  IO.println("------------------------------------------------------");
-  IO.println("Task 1.3 delete element at beginning ");
-
-  newArr = del.atStart();
-  for(int elem : newArr){
-         IO.print(elem + " ");
-  }
-  IO.println("");
-  IO.println("------------------------------------------------------");
-  IO.println("Task 1.3 delete element at end ");
-  newArr = del.atEnd();
-  for(int elem : newArr){
-         IO.print(elem + " ");
-  }
   myRandPosition = (int) ((Math.random() * (arr.length-1)));
   IO.println("");
   IO.println("------------------------------------------------------");

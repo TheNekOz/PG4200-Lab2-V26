@@ -23,10 +23,10 @@ public class Insert {
     }
 
     public int[] atIndex(int value, int position) {
-        int arrLen = this.arr.length;
-        int[] indexArr = new int[arrLen + 1];
+        int arrLen = this.arr.length + 1;
+        int[] indexArr = new int[arrLen];
         // Ah welp, this forces me to do it manually.
-        for (int i = 0; i < arrLen + 1; i++) {
+        for (int i = 0; i < arrLen; i++) {
             if (i < position) {
                 indexArr[i] = this.arr[i];
             } else if (i == position) {
